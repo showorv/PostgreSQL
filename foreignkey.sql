@@ -33,11 +33,39 @@ SELECT * from post
 -- on update cascade
 
 
---inner join
+--inner join ->> return matching rows from both table
 -- retrive title and username
 
-select title,username from post p
+select tnd right joinitle,username from post p
 INNER join "user" u on p.user_id = u.id
 
--- left and right join
+-- left join ->> All rows from the left, matched rows from right
 
+select * from post p
+left join "user" u on p.user_id = u.id
+
+-- right join->> All rows from the right, matched rows from left
+
+select * from post p
+right join "user" u on p.user_id = u.id
+
+
+-- full join ->> All rows from both, matched where possible
+
+select * from post p
+full join "user" u on p.user_id = u.id
+
+-- cross join ->> all combinations 
+
+select * from post 
+cross join "user" 
+
+select * from "user"
+cross join post 
+
+-- natural join ->> Joins two different tables automatically using columns with the same names and data types
+
+select * from post 
+natural join "user" 
+
+-- self join ->> Manually joins a table with itself to compare or relate rows within the same table.
